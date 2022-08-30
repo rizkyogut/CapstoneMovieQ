@@ -1,3 +1,23 @@
 <resources>
     <string name="app_name">CapstoneMovieQ</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="movie_picture">Movie Picture</string>
+    <string name="title">Title:</string>
+    <string name="release_date">Release Date:</string>
+    <string name="duration_movie">Duration Movie:</string>
+    <string name="avengers_end_game">Avengers End Game</string>
+    <string name="_2019_08_23">2019-08-23</string>
+    <string name="_1h_53m">1h 53m</string>
+    <string name="bookmark">Bookmark</string>
+    <string name="_4_5">4.5</string>
+    <string name="image_rating">Image Rating</string>
+    <string name="image_bookmark">Image Bookmark</string>
+    <string name="categories">Categories</string>
+    <string name="find_your_movies">Find Your Movies</string>
+    <string name="movieq">MovieQ</string>
+    <string name="favorite">Favorite</string>
+    <string name="oops_error">Oops... Error</string>
+    <string name="popularity">Popularity</string>
+    <string name="baseUrlImage">http://image.tmdb.org/t/p/w500%s</string>
 </resources>
