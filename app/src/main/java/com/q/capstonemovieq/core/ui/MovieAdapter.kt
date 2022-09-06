@@ -4,10 +4,12 @@ import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.q.capstonemovieq.R
 import com.q.capstonemovieq.core.domain.model.Movie
-import com.q.capstonemovieq.core.utils.setPosterImage
+import com.q.capstonemovieq.core.utils.setImage
 import com.q.capstonemovieq.databinding.ItemListMovieBinding
 import java.util.ArrayList
 
@@ -16,7 +18,6 @@ class MovieAdapter : RecyclerView.Adapter<MovieAdapter.ListViewHolder>() {
     private var listData = ArrayList<Movie>()
     var onItemClick: ((Movie) -> Unit)? = null
 
-    @SuppressLint("NotifyDataSetChanged")
     fun setData(newListData: List<Movie>?) {
         if (newListData == null) return
         listData.clear()
@@ -24,11 +25,11 @@ class MovieAdapter : RecyclerView.Adapter<MovieAdapter.ListViewHolder>() {
         notifyDataSetChanged()
     }
 
-    class ListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        private val binding = ItemListMovieBinding.bind(itemView)
+    inner class ListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        val binding = ItemListMovieBinding.bind(itemView)
         fun bind(data: Movie) {
             with(binding) {
-                data.posterPath.let { ivPicMovie.setPosterImage(it) }
+                data.posterPath.let { ivPicMovie.setImage(it) }
                 tvTitle.text = data.title
                 tvReleaseDate.text = data.releaseDate
                 tvPopularityMovie.text = data.popularity.toString()
@@ -37,8 +38,8 @@ class MovieAdapter : RecyclerView.Adapter<MovieAdapter.ListViewHolder>() {
         }
 
         init {
-            binding.root.setOnClickListener {
-//                onItemClick?.invoke(listData[adapterPosition])
+            itemView.setOnClickListener {
+                onItemClick?.invoke(listData[adapterPosition])
             }
         }
     }
@@ -49,8 +50,14 @@ class MovieAdapter : RecyclerView.Adapter<MovieAdapter.ListViewHolder>() {
     override fun onBindViewHolder(holder: ListViewHolder, position: Int) {
         val data = listData[position]
         holder.bind(data)
+
+        val ivBookmark = holder.binding.imgBookmark
+        if (data.isFavorite) {
+            ivBookmark.setImageDrawable(ContextCompat.getDrawable(ivBookmark.context, R.drawable.ic_baseline_bookmark))
+        } else {
+            ivBookmark.setImageDrawable(ContextCompat.getDrawable(ivBookmark.context, R.drawable.ic_baseline_bookmark_border))
+        }
     }
 
     override fun getItemCount(): Int = listData.size
-
 }

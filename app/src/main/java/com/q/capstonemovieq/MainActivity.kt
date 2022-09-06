@@ -1,12 +1,13 @@
 package com.q.capstonemovieq
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.Fragment
 import com.q.capstonemovieq.databinding.ActivityMainBinding
+import com.q.capstonemovieq.favorite.FavoriteActivity
 import com.q.capstonemovieq.home.HomeFragment
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -14,10 +15,6 @@ import dagger.hilt.android.AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
-
-    companion object {
-        const val TAG = "MainActivity"
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,7 +38,7 @@ class MainActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.favoriteMenu -> {
-                Log.d(TAG, "onOptionsItemSelected: ")
+                startActivity(Intent(this, FavoriteActivity::class.java))
                 true
             }
             else -> true

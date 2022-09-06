@@ -19,5 +19,16 @@
     <string name="favorite">Favorite</string>
     <string name="oops_error">Oops... Error</string>
     <string name="popularity">Popularity</string>
-    <string name="baseUrlImage">http://image.tmdb.org/t/p/w500%s</string>
+    <string name="baseUrlImage">https://image.tmdb.org/t/p/w500</string>
+    <string name="overview">Overview</string>
+    <string name="hollywood_1927_as_silent_movie_star_george_valentin_wonders_if_the_arrival_of_talking_pictures_will_cause_him_to_fade_into_oblivion_he_sparks_with_peppy_miller_a_young_dancer_set_for_a_big_break">Hollywood, 1927: As silent movie star George Valentin wonders if the arrival of talking pictures will cause him to fade into oblivion, he sparks with Peppy Miller, a young dancer set for a big break.</string>
+    <string name="average_rating">Average Rating</string>
+    <string name="rating_number">8.8</string>
+    <string name="rating">Rating</string>
+    <string name="vote_count">Vote Count</string>
+    <string name="rating_count">Rating Count</string>
+    <string name="_21_000">21,000</string>
+    <string name="posterdetail">PosterDetail</string>
+    <string name="menu_favorite">Menu Favorite</string>
+    <string name="empty_data">Empty Data</string>
 </resources>

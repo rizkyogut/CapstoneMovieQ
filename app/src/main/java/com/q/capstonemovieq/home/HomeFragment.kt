@@ -1,6 +1,7 @@
 package com.q.capstonemovieq.home
 
 import android.content.Intent
+import android.nfc.NfcAdapter.EXTRA_DATA
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -12,6 +13,7 @@ import com.q.capstonemovieq.R
 import com.q.capstonemovieq.core.data.Resource
 import com.q.capstonemovieq.core.ui.MovieAdapter
 import com.q.capstonemovieq.databinding.FragmentHomeBinding
+import com.q.capstonemovieq.detail.DetailMovieActivity
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -33,14 +35,13 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
         if (activity != null){
 
             val movieAdapter = MovieAdapter()
             movieAdapter.onItemClick = { selectedData ->
-//                val intent = Intent(activity, DetailTourismActivity::class.java)
-//                intent.putExtra(DetailTourismActivity.EXTRA_DATA, selectedData)
-//                startActivity(intent)
+                val intent = Intent(activity, DetailMovieActivity::class.java)
+                intent.putExtra(DetailMovieActivity.EXTRA_DATA, selectedData)
+                startActivity(intent)
             }
 
             homeViewModel.movie.observe(viewLifecycleOwner) { movie ->
