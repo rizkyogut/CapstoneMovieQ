@@ -21,9 +21,9 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        if (savedInstanceState == null) {
+        if (supportFragmentManager.backStackEntryCount == 0 && savedInstanceState == null) {
             supportFragmentManager.beginTransaction()
-                .replace(R.id.fragmentActivity, HomeFragment())
+                .replace(R.id.fragmentActivity, HomeFragment.newInstance())
                 .commit()
             supportActionBar?.title = getString(R.string.app_name)
         }

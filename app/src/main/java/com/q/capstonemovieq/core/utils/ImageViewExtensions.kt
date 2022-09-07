@@ -2,9 +2,6 @@ package com.q.capstonemovieq.core.utils
 
 import android.widget.ImageView
 import com.bumptech.glide.Glide
-import com.bumptech.glide.load.resource.bitmap.FitCenter
-import com.bumptech.glide.load.resource.bitmap.RoundedCorners
-import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.q.capstonemovieq.core.constant.Constants
 
 fun ImageView.setImage(url: String) {

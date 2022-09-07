@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.q.capstonemovieq.R
 import com.q.capstonemovieq.core.domain.model.Movie
@@ -13,7 +14,7 @@ import com.q.capstonemovieq.core.utils.setImage
 import com.q.capstonemovieq.databinding.ItemListMovieBinding
 import java.util.ArrayList
 
-class MovieAdapter : RecyclerView.Adapter<MovieAdapter.ListViewHolder>() {
+class MovieAdapter : ListAdapter<Movie, MovieAdapter.ListViewHolder>(DIFF_CALLBACK) {
 
     private var listData = ArrayList<Movie>()
     var onItemClick: ((Movie) -> Unit)? = null
@@ -60,4 +61,18 @@ class MovieAdapter : RecyclerView.Adapter<MovieAdapter.ListViewHolder>() {
     }
 
     override fun getItemCount(): Int = listData.size
+
+    companion object {
+        val DIFF_CALLBACK: DiffUtil.ItemCallback<Movie> =
+            object : DiffUtil.ItemCallback<Movie>() {
+                override fun areItemsTheSame(oldUser: Movie, newUser: Movie): Boolean {
+                    return oldUser.title == newUser.title
+                }
+
+                @SuppressLint("DiffUtilEquals")
+                override fun areContentsTheSame(oldUser: Movie, newUser: Movie): Boolean {
+                    return oldUser == newUser
+                }
+            }
+    }
 }
