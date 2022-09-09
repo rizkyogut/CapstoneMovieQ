@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="movie_picture">Movie Picture</string>
+    <string name="release_date">Release Date:</string>
+    <string name="popularity">Popularity</string>
+    <string name="avengers_end_game">Avengers End Game</string>
+    <string name="_2019_08_23">2019-08-23</string>
+    <string name="_1h_53m">1h 53m</string>
+    <string name="image_rating">Image Rating</string>
+    <string name="image_bookmark">Image Bookmark</string>
+    <string name="_4_5">4.5</string>
+</resources>
