@@ -22,31 +22,63 @@ class MovieRepository @Inject constructor(
     private val appExecutors: AppExecutors,
 ) : IMovieRepository {
 
-    override fun getAllMovies(key: String): Flow<Resource<List<Movie>>> = flow()
-
-    override fun getAllMoviePlaying(key: String): Flow<Resource<List<Movie>>> = flow()
-
-    override fun getAllMovieUpComing(key: String): Flow<Resource<List<Movie>>> = flow()
-
-    override fun getAllMovieTopRated(key: String): Flow<Resource<List<Movie>>> = flow()
-
-    private fun flow() = object : NetworkBoundResource<List<Movie>, List<MovieResponse>>() {
-        override fun loadFromDB(): Flow<List<Movie>> {
-            return localDataSource.getAllMovie().map {
-                DataMapper.mapEntitiesToDomain(it)
+    override fun getAllMovies(key: String): Flow<Resource<List<Movie>>> =
+        object : NetworkBoundResource<List<Movie>, List<MovieResponse>>() {
+            override fun loadFromDB(): Flow<List<Movie>> {
+                return localDataSource.getAllMovie().map {
+                    DataMapper.mapEntitiesToDomain(it)
+                }
             }
-        }
 
-        override fun shouldFetch(data: List<Movie>?): Boolean = true
+            override fun shouldFetch(data: List<Movie>?): Boolean = true
 
-        override suspend fun createCall(): Flow<ApiResponse<List<MovieResponse>>> =
-            remoteDataSource.getAllMovie(key = BuildConfig.API_KEY)
+            override suspend fun createCall(): Flow<ApiResponse<List<MovieResponse>>> =
+                remoteDataSource.getAllMovie(key = BuildConfig.API_KEY)
 
-        override suspend fun saveCallResult(data: List<MovieResponse>) {
-            val movieList = DataMapper.mapResponsesToEntities(data)
-            localDataSource.insertMovie(movieList)
-        }
-    }.asFlow()
+            override suspend fun saveCallResult(data: List<MovieResponse>) {
+                val movieList = DataMapper.mapResponsesToEntities(data)
+                localDataSource.insertMovie(movieList)
+            }
+        }.asFlow()
+
+    override fun getAllMoviePlaying(key: String): Flow<Resource<List<Movie>>> =
+        object : NetworkBoundResource<List<Movie>, List<MovieResponse>>() {
+            override fun loadFromDB(): Flow<List<Movie>> {
+                return localDataSource.getAllMovie().map {
+                    DataMapper.mapEntitiesToDomain(it)
+                }
+            }
+
+            override fun shouldFetch(data: List<Movie>?): Boolean = true
+
+            override suspend fun createCall(): Flow<ApiResponse<List<MovieResponse>>> =
+                remoteDataSource.getAllMoviePlaying(key = BuildConfig.API_KEY)
+
+            override suspend fun saveCallResult(data: List<MovieResponse>) {
+                val movieList = DataMapper.mapResponsesToEntities(data)
+                localDataSource.insertMovie(movieList)
+            }
+        }.asFlow()
+
+    override fun getAllMovieTopRated(key: String): Flow<Resource<List<Movie>>> =
+        object : NetworkBoundResource<List<Movie>, List<MovieResponse>>(){
+            override fun loadFromDB(): Flow<List<Movie>> {
+                return localDataSource.getAllMovie().map {
+                    DataMapper.mapEntitiesToDomain(it)
+                }
+            }
+
+            override fun shouldFetch(data: List<Movie>?): Boolean = true
+
+            override suspend fun createCall(): Flow<ApiResponse<List<MovieResponse>>> =
+                remoteDataSource.getTopRatedMovies(key = BuildConfig.API_KEY)
+
+            override suspend fun saveCallResult(data: List<MovieResponse>) {
+                val movieList = DataMapper.mapResponsesToEntities(data)
+                localDataSource.insertMovie(movieList)
+            }
+        }.asFlow()
+
 
     override fun getFavoriteMovie(key: String): Flow<List<Movie>> {
         return localDataSource.getFavoriteMovie().map {

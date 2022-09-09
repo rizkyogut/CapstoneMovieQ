@@ -23,7 +23,7 @@ interface ApiService {
 
     @GET("movie/top_rated")
     suspend fun getTopRatedMovies(
-        @Query("api_key") apiKey: String,
+        @Query("api_key") apiKey: String = BuildConfig.API_KEY,
     ): ListMovieResponse
 
 

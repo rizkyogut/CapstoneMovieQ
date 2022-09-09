@@ -11,4 +11,6 @@ import javax.inject.Inject
 class HomeViewModel @Inject constructor(movieUseCase: MovieUseCase) : ViewModel() {
 
     val movie = movieUseCase.getAllMovie(BuildConfig.API_KEY).asLiveData()
+    val moviePlaying = movieUseCase.getAllMoviePlaying(BuildConfig.API_KEY).asLiveData()
+    val movieTopRated = movieUseCase.getAllMovieTopRated(BuildConfig.API_KEY).asLiveData()
 }

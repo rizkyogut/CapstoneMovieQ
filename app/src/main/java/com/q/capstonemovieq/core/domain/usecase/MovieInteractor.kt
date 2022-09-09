@@ -15,9 +15,6 @@ class MovieInteractor @Inject constructor(private val movieRepository: IMovieRep
     override fun getAllMoviePlaying(key: String): Flow<Resource<List<Movie>>> =
         movieRepository.getAllMoviePlaying(key)
 
-    override fun getAllMovieUpComing(key: String): Flow<Resource<List<Movie>>> =
-        movieRepository.getAllMovieUpComing(key)
-
     override fun getAllMovieTopRated(key: String): Flow<Resource<List<Movie>>> =
         movieRepository.getAllMovieTopRated(key)
 
