@@ -8,10 +8,10 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.q.capstonemovieq.R
+import com.q.capstonemovieq.core.R
+import com.q.capstonemovieq.core.databinding.ItemListMovieBinding
 import com.q.capstonemovieq.core.domain.model.Movie
 import com.q.capstonemovieq.core.utils.setImage
-import com.q.capstonemovieq.databinding.ItemListMovieBinding
 import java.util.ArrayList
 
 class MovieAdapter : ListAdapter<Movie, MovieAdapter.ListViewHolder>(DIFF_CALLBACK) {

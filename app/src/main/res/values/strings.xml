@@ -2,23 +2,19 @@
     <string name="app_name">CapstoneMovieQ</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="movie_picture">Movie Picture</string>
     <string name="title">Title:</string>
-    <string name="release_date">Release Date:</string>
     <string name="duration_movie">Duration Movie:</string>
-    <string name="avengers_end_game">Avengers End Game</string>
-    <string name="_2019_08_23">2019-08-23</string>
-    <string name="_1h_53m">1h 53m</string>
+
+
     <string name="bookmark">Bookmark</string>
-    <string name="_4_5">4.5</string>
-    <string name="image_rating">Image Rating</string>
-    <string name="image_bookmark">Image Bookmark</string>
+
+
+
     <string name="categories">Categories</string>
     <string name="find_your_movies">Find Your Movies</string>
     <string name="movieq">MovieQ</string>
     <string name="favorite">Favorite</string>
-    <string name="oops_error">Oops... Error</string>
-    <string name="popularity">Popularity</string>
+    <string name="oops_error">Oops… Error</string>
     <string name="baseUrlImage">https://image.tmdb.org/t/p/w500</string>
     <string name="overview">Overview</string>
     <string name="hollywood_1927_as_silent_movie_star_george_valentin_wonders_if_the_arrival_of_talking_pictures_will_cause_him_to_fade_into_oblivion_he_sparks_with_peppy_miller_a_young_dancer_set_for_a_big_break">Hollywood, 1927: As silent movie star George Valentin wonders if the arrival of talking pictures will cause him to fade into oblivion, he sparks with Peppy Miller, a young dancer set for a big break.</string>

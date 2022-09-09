@@ -1,7 +1,6 @@
 package com.q.capstonemovieq.core.data.source.remote
 
 import android.util.Log
-import com.q.capstonemovieq.BuildConfig
 import com.q.capstonemovieq.core.data.source.remote.network.ApiResponse
 import com.q.capstonemovieq.core.data.source.remote.network.ApiService
 import com.q.capstonemovieq.core.data.source.remote.response.MovieResponse

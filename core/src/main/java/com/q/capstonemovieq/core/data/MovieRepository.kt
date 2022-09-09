@@ -1,7 +1,6 @@
 package com.q.capstonemovieq.core.data
 
-
-import com.q.capstonemovieq.BuildConfig
+import com.q.capstonemovieq.core.constant.Constants.API_KEY
 import com.q.capstonemovieq.core.data.source.local.LocalDataSource
 import com.q.capstonemovieq.core.data.source.remote.RemoteDataSource
 import com.q.capstonemovieq.core.data.source.remote.network.ApiResponse
@@ -23,7 +22,7 @@ class MovieRepository @Inject constructor(
 ) : IMovieRepository {
 
     override fun getAllMovies(key: String): Flow<Resource<List<Movie>>> =
-        object : NetworkBoundResource<List<Movie>, List<MovieResponse>>() {
+        object : com.q.capstonemovieq.core.data.NetworkBoundResource<List<Movie>, List<MovieResponse>>() {
             override fun loadFromDB(): Flow<List<Movie>> {
                 return localDataSource.getAllMovie().map {
                     DataMapper.mapEntitiesToDomain(it)
@@ -33,7 +32,7 @@ class MovieRepository @Inject constructor(
             override fun shouldFetch(data: List<Movie>?): Boolean = true
 
             override suspend fun createCall(): Flow<ApiResponse<List<MovieResponse>>> =
-                remoteDataSource.getAllMovie(key = BuildConfig.API_KEY)
+                remoteDataSource.getAllMovie(key = API_KEY)
 
             override suspend fun saveCallResult(data: List<MovieResponse>) {
                 val movieList = DataMapper.mapResponsesToEntities(data)
@@ -42,7 +41,7 @@ class MovieRepository @Inject constructor(
         }.asFlow()
 
     override fun getAllMoviePlaying(key: String): Flow<Resource<List<Movie>>> =
-        object : NetworkBoundResource<List<Movie>, List<MovieResponse>>() {
+        object : com.q.capstonemovieq.core.data.NetworkBoundResource<List<Movie>, List<MovieResponse>>() {
             override fun loadFromDB(): Flow<List<Movie>> {
                 return localDataSource.getAllMovie().map {
                     DataMapper.mapEntitiesToDomain(it)
@@ -52,7 +51,7 @@ class MovieRepository @Inject constructor(
             override fun shouldFetch(data: List<Movie>?): Boolean = true
 
             override suspend fun createCall(): Flow<ApiResponse<List<MovieResponse>>> =
-                remoteDataSource.getAllMoviePlaying(key = BuildConfig.API_KEY)
+                remoteDataSource.getAllMoviePlaying(key = API_KEY)
 
             override suspend fun saveCallResult(data: List<MovieResponse>) {
                 val movieList = DataMapper.mapResponsesToEntities(data)
@@ -61,7 +60,7 @@ class MovieRepository @Inject constructor(
         }.asFlow()
 
     override fun getAllMovieTopRated(key: String): Flow<Resource<List<Movie>>> =
-        object : NetworkBoundResource<List<Movie>, List<MovieResponse>>(){
+        object : com.q.capstonemovieq.core.data.NetworkBoundResource<List<Movie>, List<MovieResponse>>(){
             override fun loadFromDB(): Flow<List<Movie>> {
                 return localDataSource.getAllMovie().map {
                     DataMapper.mapEntitiesToDomain(it)
@@ -71,7 +70,7 @@ class MovieRepository @Inject constructor(
             override fun shouldFetch(data: List<Movie>?): Boolean = true
 
             override suspend fun createCall(): Flow<ApiResponse<List<MovieResponse>>> =
-                remoteDataSource.getTopRatedMovies(key = BuildConfig.API_KEY)
+                remoteDataSource.getTopRatedMovies(key = API_KEY)
 
             override suspend fun saveCallResult(data: List<MovieResponse>) {
                 val movieList = DataMapper.mapResponsesToEntities(data)

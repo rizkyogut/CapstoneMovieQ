@@ -115,5 +115,4 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/imgRating"
         app:layout_constraintStart_toStartOf="@+id/imgRating" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>
