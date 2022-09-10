@@ -17,3 +17,4 @@ dependencyResolutionManagement {
 rootProject.name = "CapstoneMovieQ"
 include ':app'
 include ':core'
+include ':favorite'

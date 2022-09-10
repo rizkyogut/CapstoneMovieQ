@@ -1,5 +1,5 @@
 plugins {
-    id 'com.android.application'
+    id 'com.android.dynamic-feature'
     id 'kotlin-android'
     id 'kotlin-parcelize'
     id 'kotlin-kapt'
@@ -12,14 +12,13 @@ android {
     compileSdk 32
 
     defaultConfig {
-        applicationId "com.q.capstonemovieq"
-        minSdk 28
-        targetSdk 32
-        versionCode 1
-        versionName "1.0"
-
+        minSdk 25
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-        buildConfigField("String", "API_KEY", '"532d4b869e03fb060ac696f4950cd379"')
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
     }
 
     buildTypes {
@@ -28,27 +27,16 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
-    }
     kotlinOptions {
         jvmTarget = '1.8'
     }
     buildFeatures {
         viewBinding = true
     }
-    dynamicFeatures = [':favorite']
 }
 
 dependencies {
     implementation project(":core")
+    implementation project(":app")
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-    implementation 'androidx.appcompat:appcompat:1.5.1'
-    implementation 'com.google.android.material:material:1.6.1'
-    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
-}
-
-repositories {
-    mavenCentral()
 }

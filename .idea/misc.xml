@@ -3,17 +3,24 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/ky/projects/Dicoding/Expert/_fix/CapstoneMovieQ/app/src/main/res/drawable/ic_baseline_bookmark_border.xml" value="0.1" />
         <entry key="..\:/Users/ky/projects/Dicoding/Expert/_fix/CapstoneMovieQ/app/src/main/res/layout/activity_detail_movie.xml" value="0.184375" />
         <entry key="..\:/Users/ky/projects/Dicoding/Expert/_fix/CapstoneMovieQ/app/src/main/res/layout/activity_favorite.xml" value="0.184375" />
         <entry key="..\:/Users/ky/projects/Dicoding/Expert/_fix/CapstoneMovieQ/app/src/main/res/layout/activity_main.xml" value="0.184375" />
+        <entry key="..\:/Users/ky/projects/Dicoding/Expert/_fix/CapstoneMovieQ/app/src/main/res/layout/activity_splash_screen.xml" value="0.1" />
         <entry key="..\:/Users/ky/projects/Dicoding/Expert/_fix/CapstoneMovieQ/app/src/main/res/layout/appbar_tabs.xml" value="0.184375" />
         <entry key="..\:/Users/ky/projects/Dicoding/Expert/_fix/CapstoneMovieQ/app/src/main/res/layout/fragment_home.xml" value="0.184375" />
         <entry key="..\:/Users/ky/projects/Dicoding/Expert/_fix/CapstoneMovieQ/app/src/main/res/layout/fragment_show_item.xml" value="0.1" />
         <entry key="..\:/Users/ky/projects/Dicoding/Expert/_fix/CapstoneMovieQ/app/src/main/res/layout/item_category.xml" value="0.1118659420289855" />
         <entry key="..\:/Users/ky/projects/Dicoding/Expert/_fix/CapstoneMovieQ/app/src/main/res/layout/item_list_movie.xml" value="0.1118659420289855" />
         <entry key="..\:/Users/ky/projects/Dicoding/Expert/_fix/CapstoneMovieQ/app/src/main/res/layout/poster_image_detail.xml" value="0.1118659420289855" />
+        <entry key="..\:/Users/ky/projects/Dicoding/Expert/_fix/CapstoneMovieQ/app/src/main/res/layout/view_empty.xml" value="0.1" />
+        <entry key="..\:/Users/ky/projects/Dicoding/Expert/_fix/CapstoneMovieQ/app/src/main/res/layout/view_error.xml" value="0.184375" />
         <entry key="..\:/Users/ky/projects/Dicoding/Expert/_fix/CapstoneMovieQ/core/src/main/res/drawable/test.xml" value="0.1" />
         <entry key="..\:/Users/ky/projects/Dicoding/Expert/_fix/CapstoneMovieQ/core/src/main/res/layout/item_list_movie.xml" value="0.1" />
+        <entry key="..\:/Users/ky/projects/Dicoding/Expert/_fix/CapstoneMovieQ/favorite/src/main/res/layout/activity_favorite.xml" value="0.1" />
+        <entry key="..\:/Users/ky/projects/Dicoding/Expert/_fix/CapstoneMovieQ/favorite/src/main/res/layout/view_empty.xml" value="0.1" />
+        <entry key="..\:/Users/ky/projects/Dicoding/Expert/_fix/CapstoneMovieQ/favorite/src/main/res/layout/view_empty_favorite.xml" value="0.1" />
       </map>
     </option>
   </component>

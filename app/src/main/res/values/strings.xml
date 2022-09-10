@@ -4,12 +4,7 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title">Title:</string>
     <string name="duration_movie">Duration Movie:</string>
-
-
     <string name="bookmark">Bookmark</string>
-
-
-
     <string name="categories">Categories</string>
     <string name="find_your_movies">Find Your Movies</string>
     <string name="movieq">MovieQ</string>
@@ -27,4 +22,6 @@
     <string name="posterdetail">PosterDetail</string>
     <string name="menu_favorite">Menu Favorite</string>
     <string name="empty_data">Empty Data</string>
+    <string name="title_favorite">Module Title</string>
+    <string name="image_splashscreen">Image SplashScreen</string>
 </resources>

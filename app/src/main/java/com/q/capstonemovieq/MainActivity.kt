@@ -1,13 +1,12 @@
 package com.q.capstonemovieq
 
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.app.AppCompatDelegate
 import com.q.capstonemovieq.databinding.ActivityMainBinding
-import com.q.capstonemovieq.favorite.FavoriteActivity
 import com.q.capstonemovieq.home.HomeFragment
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -18,11 +17,10 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        if (supportFragmentManager.backStackEntryCount == 0 && savedInstanceState == null) {
+        if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction()
                 .replace(R.id.fragmentActivity, HomeFragment.newInstance())
                 .commit()
@@ -39,7 +37,8 @@ class MainActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.favoriteMenu -> {
-                startActivity(Intent(this, FavoriteActivity::class.java))
+                val uri = Uri.parse("capstonemovieqapp://favorite")
+                startActivity(Intent(Intent.ACTION_VIEW, uri))
                 true
             }
             else -> true

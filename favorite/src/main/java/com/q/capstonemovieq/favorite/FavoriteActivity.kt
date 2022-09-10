@@ -7,20 +7,35 @@ import android.view.View
 import androidx.activity.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.q.capstonemovieq.core.ui.MovieAdapter
-import com.q.capstonemovieq.databinding.ActivityFavoriteBinding
 import com.q.capstonemovieq.detail.DetailMovieActivity
-import dagger.hilt.android.AndroidEntryPoint
+import com.q.capstonemovieq.di.FavoriteModuleDependencies
+import com.q.capstonemovieq.favorite.databinding.ActivityFavoriteBinding
+import dagger.hilt.android.EntryPointAccessors
+import javax.inject.Inject
 
-@AndroidEntryPoint
 class FavoriteActivity : AppCompatActivity() {
 
-    private val favoriteViewModel: FavoriteViewModel by viewModels()
+    @Inject
+    lateinit var factory: ViewModelFactory
+
+    private val favoriteViewModel: FavoriteViewModel by viewModels{
+        factory
+    }
 
     private var _binding: ActivityFavoriteBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        DaggerFavoriteComponent.builder()
+            .context(this)
+            .appDependencies(EntryPointAccessors.fromApplication(
+                applicationContext,
+                FavoriteModuleDependencies::class.java
+            ))
+            .build()
+            .inject(this)
         super.onCreate(savedInstanceState)
+
         _binding = ActivityFavoriteBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
@@ -33,7 +48,7 @@ class FavoriteActivity : AppCompatActivity() {
 
         favoriteViewModel.favoriteMovie.observe(this) { dataMovie ->
             movieAdapter.setData(dataMovie)
-            binding.viewEmpty.root.visibility = if (dataMovie.isNotEmpty()) View.GONE else View.VISIBLE
+            binding.viewEmpty.visibility = if (dataMovie.isNotEmpty()) View.GONE else View.VISIBLE
         }
 
         with(binding.rvFavorite) {
