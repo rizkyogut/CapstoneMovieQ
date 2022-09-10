@@ -11,11 +11,6 @@ interface ApiService {
         @Query("api_key") apiKey: String = API_KEY,
     ): ListMovieResponse
 
-    @GET("movie/latest")
-    suspend fun getLatestMovies(
-        @Query("api_key") apiKey: String = API_KEY,
-    ): ListMovieResponse
-
     @GET("movie/now_playing")
     suspend fun getNowPlayingMovies(
         @Query("api_key") apiKey: String = API_KEY,

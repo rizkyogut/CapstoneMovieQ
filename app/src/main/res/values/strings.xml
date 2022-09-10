@@ -24,4 +24,5 @@
     <string name="empty_data">Empty Data</string>
     <string name="title_favorite">Module Title</string>
     <string name="image_splashscreen">Image SplashScreen</string>
+    <string name="image_poster_detail">Image Poster Detail</string>
 </resources>
