@@ -1,5 +1,6 @@
 package com.q.capstonemovieq.detail
 
+import android.nfc.NfcAdapter.EXTRA_DATA
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -13,10 +14,6 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class DetailMovieActivity : AppCompatActivity() {
 
-    companion object {
-        const val EXTRA_DATA = "extra_data"
-    }
-
     private lateinit var binding: ActivityDetailMovieBinding
 
     private val detailMovieViewModel: DetailMovieViewModel by viewModels()
@@ -25,7 +22,7 @@ class DetailMovieActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         if (supportActionBar != null) {
-            supportActionBar!!.hide()
+            supportActionBar?.hide()
         }
 
         binding = ActivityDetailMovieBinding.inflate(layoutInflater)
@@ -65,5 +62,9 @@ class DetailMovieActivity : AppCompatActivity() {
         } else {
             binding.fab.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.ic_baseline_bookmark_border))
         }
+    }
+
+    companion object {
+        const val EXTRA_DATA = "extra_data"
     }
 }

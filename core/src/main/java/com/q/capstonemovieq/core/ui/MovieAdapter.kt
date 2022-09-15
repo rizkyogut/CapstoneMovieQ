@@ -40,7 +40,7 @@ class MovieAdapter : ListAdapter<Movie, MovieAdapter.ListViewHolder>(DIFF_CALLBA
 
         init {
             itemView.setOnClickListener {
-                onItemClick?.invoke(listData[adapterPosition])
+                onItemClick?.invoke(listData[bindingAdapterPosition])
             }
         }
     }
