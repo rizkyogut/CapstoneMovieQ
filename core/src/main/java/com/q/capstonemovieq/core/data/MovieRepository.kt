@@ -1,6 +1,6 @@
 package com.q.capstonemovieq.core.data
 
-import com.q.capstonemovieq.core.constant.Constants.API_KEY
+import com.q.capstonemovieq.core.BuildConfig.API_KEY
 import com.q.capstonemovieq.core.data.source.local.LocalDataSource
 import com.q.capstonemovieq.core.data.source.remote.RemoteDataSource
 import com.q.capstonemovieq.core.data.source.remote.network.ApiResponse

@@ -14,6 +14,8 @@ android {
     defaultConfig {
         minSdk 25
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        buildConfigField("String", "API_KEY", '"532d4b869e03fb060ac696f4950cd379"')
     }
 
     compileOptions {

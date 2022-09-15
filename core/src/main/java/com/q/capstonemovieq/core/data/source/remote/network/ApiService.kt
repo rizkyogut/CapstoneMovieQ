@@ -1,6 +1,6 @@
 package com.q.capstonemovieq.core.data.source.remote.network
 
-import com.q.capstonemovieq.core.constant.Constants.API_KEY
+import com.q.capstonemovieq.core.BuildConfig.API_KEY
 import com.q.capstonemovieq.core.data.source.remote.response.ListMovieResponse
 import retrofit2.http.GET
 import retrofit2.http.Query
