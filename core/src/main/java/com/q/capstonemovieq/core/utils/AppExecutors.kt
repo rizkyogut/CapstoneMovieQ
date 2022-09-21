@@ -1,7 +1,5 @@
 package com.q.capstonemovieq.core.utils
 
-import android.os.Handler
-import android.os.Looper
 import androidx.annotation.VisibleForTesting
 import java.util.concurrent.Executor
 import java.util.concurrent.Executors
@@ -10,8 +8,7 @@ import javax.inject.Inject
 class AppExecutors @VisibleForTesting constructor(
     private val diskIO: Executor
 ) {
-    companion object {
-    }
+    companion object;
 
     @Inject
     constructor() : this(
