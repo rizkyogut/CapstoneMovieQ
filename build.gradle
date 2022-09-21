@@ -50,8 +50,13 @@ ext {
     //Dagger Hilt
     hilt_version = "2.43.2"
 
-    ext.activity_ktx_version = "1.5.1"
-    ext.fragment_ktx_version = '1.5.2'
+    activity_ktx_version = "1.5.1"
+    fragment_ktx_version = "1.5.2"
+
+    sqlcipher_version = "4.4.0"
+    sqlite_ktx_version = "2.2.0"
+
+    leakcanary_version = "2.6"
 }
 
 task clean(type: Delete) {
