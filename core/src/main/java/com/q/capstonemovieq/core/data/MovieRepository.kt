@@ -29,7 +29,7 @@ class MovieRepository @Inject constructor(
                 }
             }
 
-            override fun shouldFetch(data: List<Movie>?): Boolean = true
+            override fun shouldFetch(data: List<Movie>?): Boolean = data == null || data.isEmpty()
 
             override suspend fun createCall(): Flow<ApiResponse<List<MovieResponse>>> =
                 remoteDataSource.getAllMovie(key = API_KEY)
@@ -48,7 +48,7 @@ class MovieRepository @Inject constructor(
                 }
             }
 
-            override fun shouldFetch(data: List<Movie>?): Boolean = true
+            override fun shouldFetch(data: List<Movie>?): Boolean = data == null || data.isEmpty()
 
             override suspend fun createCall(): Flow<ApiResponse<List<MovieResponse>>> =
                 remoteDataSource.getAllMoviePlaying(key = API_KEY)
@@ -67,7 +67,7 @@ class MovieRepository @Inject constructor(
                 }
             }
 
-            override fun shouldFetch(data: List<Movie>?): Boolean = true
+            override fun shouldFetch(data: List<Movie>?): Boolean = data == null || data.isEmpty()
 
             override suspend fun createCall(): Flow<ApiResponse<List<MovieResponse>>> =
                 remoteDataSource.getTopRatedMovies(key = API_KEY)
