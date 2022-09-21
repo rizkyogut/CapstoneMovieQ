@@ -2,7 +2,6 @@ package com.q.capstonemovieq.core.ui
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.DiffUtil
@@ -12,13 +11,13 @@ import com.q.capstonemovieq.core.R
 import com.q.capstonemovieq.core.databinding.ItemListMovieBinding
 import com.q.capstonemovieq.core.domain.model.Movie
 import com.q.capstonemovieq.core.utils.setImage
-import java.util.ArrayList
 
 class MovieAdapter : ListAdapter<Movie, MovieAdapter.ListViewHolder>(DIFF_CALLBACK) {
 
     private var listData = ArrayList<Movie>()
     var onItemClick: ((Movie) -> Unit)? = null
 
+    @SuppressLint("NotifyDataSetChanged")
     fun setData(newListData: List<Movie>?) {
         if (newListData == null) return
         listData.clear()
@@ -26,8 +25,8 @@ class MovieAdapter : ListAdapter<Movie, MovieAdapter.ListViewHolder>(DIFF_CALLBA
         notifyDataSetChanged()
     }
 
-    inner class ListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val binding = ItemListMovieBinding.bind(itemView)
+    inner class ListViewHolder(val binding: ItemListMovieBinding) :
+        RecyclerView.ViewHolder(binding.root) {
         fun bind(data: Movie) {
             with(binding) {
                 data.posterPath.let { ivPicMovie.setImage(it) }
@@ -45,8 +44,11 @@ class MovieAdapter : ListAdapter<Movie, MovieAdapter.ListViewHolder>(DIFF_CALLBA
         }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = ListViewHolder(
-        LayoutInflater.from(parent.context).inflate(R.layout.item_list_movie, parent, false))
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ListViewHolder {
+        val binding =
+            ItemListMovieBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return ListViewHolder(binding)
+    }
 
     override fun onBindViewHolder(holder: ListViewHolder, position: Int) {
         val data = listData[position]
@@ -54,9 +56,11 @@ class MovieAdapter : ListAdapter<Movie, MovieAdapter.ListViewHolder>(DIFF_CALLBA
 
         val ivBookmark = holder.binding.imgBookmark
         if (data.isFavorite) {
-            ivBookmark.setImageDrawable(ContextCompat.getDrawable(ivBookmark.context, R.drawable.ic_baseline_bookmark))
+            ivBookmark.setImageDrawable(ContextCompat.getDrawable(ivBookmark.context,
+                R.drawable.ic_baseline_bookmark))
         } else {
-            ivBookmark.setImageDrawable(ContextCompat.getDrawable(ivBookmark.context, R.drawable.ic_baseline_bookmark_border))
+            ivBookmark.setImageDrawable(ContextCompat.getDrawable(ivBookmark.context,
+                R.drawable.ic_baseline_bookmark_border))
         }
     }
 

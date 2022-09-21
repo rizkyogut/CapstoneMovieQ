@@ -1,6 +1,5 @@
 package com.q.capstonemovieq.detail
 
-import android.nfc.NfcAdapter.EXTRA_DATA
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
